@@ -2,7 +2,7 @@ install:
 	npm i
 
 test:	install
-	jest
+	npm test
 
 start:
 	nodemon index.js
