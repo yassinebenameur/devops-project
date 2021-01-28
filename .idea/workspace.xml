@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bd4667d-2e9e-4431-8b58-8b404929ff4e" name="Default Changelist" comment="fix Dockerfile">
-      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prometheus.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/functions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/functions.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.spec.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +89,7 @@
       <workItem from="1611169719023" duration="4717000" />
       <workItem from="1611323762848" duration="626000" />
       <workItem from="1611338644655" duration="1658000" />
+      <workItem from="1611862870886" duration="2911000" />
     </task>
     <task id="LOCAL-00001" summary="port 8000">
       <created>1611098738073</created>

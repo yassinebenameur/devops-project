@@ -1,5 +1,7 @@
 const express = require('express')
 const dotenv = require('dotenv');
+const functions = require("./util/functions");
+
 dotenv.config();
 const app = express()
 
@@ -14,8 +16,7 @@ const bundle = promBundle({
     // transformLabels: labels => Object.assign(labels, {year: new Date().getFullYear()}),
     metricsPath: '/metrics',
     promClient: {
-        collectDefaultMetrics: {
-        }
+        collectDefaultMetrics: {}
     },
     urlValueParser: {
         minHexLength: 5,
@@ -44,31 +45,25 @@ app.get('/', (req, res) => {
 
 })
 
-app.get('/api1/:n', (req, res) => {
-
-    result = fact(req.params.n);
-    res.send('this is api 1 ' + result.toString())
-    // saving the time of a connection
-
-})
-
-app.get('/api2', (req, res) => {
-
-    result = fact(1000000000);
-    setTimeout(() =>{
-        res.send('This is api 2 ' + result.toString())
-
-    },1000 );
-    // saving the time of a connection
+app.get('/prime/list/:n', (req, res) => {
+    let result = functions.listPrimes(req.params.n);
+    res.json({
+        'max': req.params.n,
+        'found': result.length,
+        'result': result
+    })
 
 })
 
-function fact(n){
-   return n*n*n*n*n;
-}
+app.get('/prime/:n', (req, res) => {
 
+    let result = functions.isPrime(req.params.n);
+    res.json({
+        'number': req.params.n,
+        'result': result
+    })
 
-
+})
 
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`)
