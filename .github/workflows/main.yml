@@ -58,3 +58,10 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      
+      - name: Update pods with recent image
+        uses: satak/webrequest-action@master
+        with:
+           url: https://ugo5vj4qjl.execute-api.us-east-1.amazonaws.com/default/updateKubernetes
+           method: Get
+   
