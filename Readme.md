@@ -1,5 +1,29 @@
 # Application Description
+This NodeJS application was developed in the context of a devops academic project, and intended to be deployed
+on a kubernetes cluster.  
+It offers 2 simple APIs :
+-   **/prime/list/{number}** : returns all prime numbers that are less or equal to the given number
+-   **/prime/{number}** : checks if the given number is a prime  
+It uses **prom-client** to exposes some application metrics under:
+-   **/metrics**
 
+The application contains some **unit tests** (with **jest**)
+
+Here is the detailed CI/CD Workflow: 
+![alt text](img/ci-cd.png)
+
+This app also will be monitored with Prometheus/Grafana (Node + Application Metrics).
+![alt text](img/grafana.png)
+
+It also includes alerts that will be sent as notifications to pre-defined slack channels
+For example, this alert will trigger on cpu usage exceeds 50% for an extended period of time
+![alt text](img/cpu-usage-panel.png)
+The received notifications: 
+![alt text](img/slack-notification.png)
+### Deployment Strategy:
+**Rolling updates :**
+Rolling updates allow Deployments' update to take place with zero downtime by incrementally updating Pods instances 
+with new ones. The new Pods will be scheduled on Nodes with available resources.
 
 
 # Setting up a kubernetes cluster on EC2 instances, with kubeadm
